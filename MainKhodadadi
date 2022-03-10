@@ -1,0 +1,23 @@
+# Find Numbers with W time repeated
+# for example in [l=0 , r=20] we have 2 time m=3 => [3, 13]
+# w works when norepeat is 1 and means length of m for example for Reapeted_number(0, 40, 3, 1 , 2), answer is [33]
+#if norepeat= 1 in [l=0 , r=40] 33 wont be accpeted for m=3
+
+def Reapeted_number(l, r, m, norepeat ,w):
+    answer = []
+    for i in range(l, r + 1):
+        strnum = str(i)
+        if norepeat == 1:
+            if strnum.count(str(m)) == w:
+                answer.append(i)
+        if norepeat == 0:
+            strj = str(m)
+            for n in range(1 , len(str(r))+1):
+                if strnum.count(strj) == n:
+                    answer.append(i)
+    return answer
+
+answer=Reapeted_number(0, 40, 3, 1 , 2)
+
+print (answer)
+
